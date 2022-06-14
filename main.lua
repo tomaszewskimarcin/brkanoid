@@ -1,11 +1,7 @@
-local enemyRate = math.random(1,200)/100
-local currentDt = 0
-local enemies = {}
-
 function love.load()
     Object = require("lib.classic")
     inspect = require("lib.inspect")
-    require("game")
+    require("classes.game")
     game = Game()
 end
 

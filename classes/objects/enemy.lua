@@ -5,7 +5,7 @@ function Enemy:new(size, speed)
     self.speedX = speed
     self.speedY = speed/2
     self.outOfBounds = false
-    self.isDead = false
+    self.dead = false
     self.projectiles = {}
     self.x = math.random(self.size, love.graphics.getWidth() - self.size)
     self.y = 0 - self.size
@@ -25,7 +25,7 @@ function Enemy:update(dt)
     if self.y >= love.graphics.getHeight() - self.size then
         self.outOfBounds = true
     end
-    self.isDead = self:collidesWithProjectiles()
+    self.dead = self:collidesWithProjectiles()
 end
 
 function Enemy:collidesWithProjectiles()
@@ -46,11 +46,11 @@ function Enemy:draw()
 end
 
 function Enemy:isOutOfBounds()
-    return self.outOfBounds or self.isDead
+    return self.outOfBounds
 end
 
 function Enemy:isDead()
-    return self.isDead
+    return self.dead
 end
 
 function Enemy:setProjectiles(projectiles)
