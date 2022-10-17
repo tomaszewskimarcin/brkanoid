@@ -9,6 +9,7 @@ function Ship:new(width, height, speed, fireRate)
     self.projectiles = {}
     self.x = love.graphics.getWidth() / 2 - self.width/2
     self.y = love.graphics.getHeight() - self.height - 10
+    self.image = love.graphics.newImage('sprites/spaceShip.png')
 end
 
 function Ship:update(dt)
@@ -42,6 +43,7 @@ end
 
 function Ship:draw()
     love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    love.graphics.draw(self.image, self.x, self.y)
     self:drawProjectiles()
 end
 

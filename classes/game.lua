@@ -22,7 +22,9 @@ end
 
 function Game:draw()
     self.ship:draw()
+    self:resetColor()
     self.enemySpawner:draw()
+    self:resetColor()
 end
 
 --Update Functions
@@ -36,4 +38,8 @@ end
 function Game:updateEnemySpawnerRateAndSpeed()
     self.enemySpawner:setRate(math.random(1,200)/100)
     self.enemySpawner:setSpeed(math.random(100, 400))
+end
+
+function Game:resetColor()
+    love.graphics.setColor(1, 1, 1)
 end
